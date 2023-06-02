@@ -12,7 +12,6 @@ COPY requirements.txt /app/
 
 # Instale as dependências do projeto
 RUN apt update
-RUN apt list --upgradable | grep python
 RUN apt upgrade python3
 RUN pip3 install -r requirements.txt
 
