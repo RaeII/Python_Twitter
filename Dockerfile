@@ -13,7 +13,7 @@ COPY requirements.txt /app/
 # Instale as dependências do projeto
 RUN apt update
 RUN apt install python3
-RUN pip install --upgrade pip
+RUN pip3 install --upgrade pip3
 RUN pip3 install -r requirements.txt
 
 # Copie o restante do código do projeto para o diretório de trabalho
