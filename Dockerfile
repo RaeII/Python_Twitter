@@ -1,5 +1,7 @@
 # Use a imagem oficial do Python como base
-FROM python:3
+FROM python:3.10.6-slim-buster
+
+
 
 # Defina a variável de ambiente PYTHONUNBUFFERED para garantir que os logs do Python sejam enviados para o console
 #ENV PYTHONUNBUFFERED=1
@@ -8,11 +10,11 @@ FROM python:3
 WORKDIR /app
 
 # Copie o arquivo de dependências para o diretório de trabalho
-COPY requirements.txt /app/
+COPY requirements.txt requirements.txt
 
 # Instale as dependências do projeto
 RUN pip install --upgrade pip
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Copie o restante do código do projeto para o diretório de trabalho
-COPY . /app/
+COPY . .
