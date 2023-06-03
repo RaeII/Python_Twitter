@@ -1,7 +1,5 @@
 # Use a imagem oficial do Python como base
-FROM python:3.10.6-slim-buster
-
-
+FROM python:3
 
 # Defina a variável de ambiente PYTHONUNBUFFERED para garantir que os logs do Python sejam enviados para o console
 #ENV PYTHONUNBUFFERED=1
@@ -10,11 +8,12 @@ FROM python:3.10.6-slim-buster
 WORKDIR /app
 
 # Copie o arquivo de dependências para o diretório de trabalho
-COPY requirements.txt requirements.txt
+COPY requirements.txt /app/
 
 # Instale as dependências do projeto
 RUN pip install --upgrade pip
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir snscrape fastapi uvicorn
+RUN pip3 install --upgrade git+https://github.com/JustAnotherArchivist/snscrape.git
 
 # Copie o restante do código do projeto para o diretório de trabalho
-COPY . .
+COPY . /app/
