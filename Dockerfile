@@ -1,5 +1,8 @@
-# Use a imagem oficial do Python como base
-FROM python:3
+FROM ubuntu:latest
+
+# Atualiza os pacotes e instala o Python e o pip
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip
 
 # Defina a variável de ambiente PYTHONUNBUFFERED para garantir que os logs do Python sejam enviados para o console
 #ENV PYTHONUNBUFFERED=1
