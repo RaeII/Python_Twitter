@@ -8,6 +8,8 @@ _Bibliotecas_
 - pandas
 - fastapi
 - uvicorn
+- pip3 install --upgrade git+https://github.com/JustAnotherArchivist/snscrape.git
+
 
 INICIAR API
  - uvicorn tweets:app --reload

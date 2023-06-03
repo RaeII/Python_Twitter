@@ -12,7 +12,7 @@ COPY requirements.txt /app/
 
 # Instale as dependências do projeto
 RUN pip install --upgrade pip
-RUN pip3 install --no-cache-dir snscrape fastapi uvicorn
+RUN pip3 install --no-cache-dir snscrape fastapi uvicorn pandas
 RUN pip3 install --upgrade git+https://github.com/JustAnotherArchivist/snscrape.git
 
 # Copie o restante do código do projeto para o diretório de trabalho
