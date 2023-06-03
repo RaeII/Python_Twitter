@@ -1,4 +1,4 @@
-anyio==3.7.0
+anyio
 apturl
 beautifulsoup4==4.12.2
 blinker==1.4
