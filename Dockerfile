@@ -10,6 +10,13 @@ WORKDIR /app
 # Copie o arquivo de dependências para o diretório de trabalho
 COPY requirements.txt /app/
 
+#=======
+#RUN pip install --upgrade pip
+
+#COPY requirements.txt .
+#RUN pip install --no-cache-dir --upgrade -r requirements.txt
+#=======
+
 # Instale as dependências do projeto
 RUN pip install --upgrade pip
 RUN pip3 install --no-cache-dir snscrape fastapi uvicorn pandas
@@ -17,3 +24,4 @@ RUN pip3 install --upgrade git+https://github.com/JustAnotherArchivist/snscrape.
 
 # Copie o restante do código do projeto para o diretório de trabalho
 COPY . /app/
+
