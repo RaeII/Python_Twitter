@@ -7,4 +7,4 @@ services:
       - "8000:8000"
     environment:
       - WATCHFILES_FORCE_POLLING=true
-    command: uvicorn tweets:app --reload
+    command: uvicorn tweets:app --reload --port=8000 --host=0.0.0.0
