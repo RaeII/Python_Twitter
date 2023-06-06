@@ -1,7 +1,6 @@
 import snscrape.modules.twitter as sntwitter
 import pandas as pd
 import pytz
-from Tweets import Tweets
 from pydantic import BaseModel
 from fastapi import FastAPI
 
@@ -17,11 +16,20 @@ def getTweetsByUserDate(data):
         utc_date = tweet.date
         brasilia_tz = pytz.timezone('America/Sao_Paulo')
         br_date = utc_date.astimezone(brasilia_tz)
+        
+        if hasattr(tweet, 'media'):
+            
+            media = tweet.media
+        else:
+            media = ""
+
         tweets.append({
-            'id':tweet.id,
+            'id':str(tweet.id),
             'user_name':tweet.user.username,
             'content':tweet.rawContent,
             'url':tweet.url,
+            'profile_image_url':tweet.user.profileImageUrl,
+            'thumbnail_url':media,
             'date':br_date.strftime("%Y-%m-%d %H:%M")
         })
     
@@ -39,7 +47,6 @@ def get_twitter_profile_info(data):
         if profiles:
             # Obter o primeiro tweet que corresponde ao nome de usuário
             user = profiles.user
-
             user_info = {
                 'id': user.id,
                 'user_name': user.username,
