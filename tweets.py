@@ -29,7 +29,7 @@ def getTweetsByUserDate(data):
             'content':tweet.rawContent,
             'url':tweet.url,
             'profile_image_url':tweet.user.profileImageUrl,
-            'thumbnail_url':media,
+            'media':media,
             'date':br_date.strftime("%Y-%m-%d %H:%M")
         })
     
