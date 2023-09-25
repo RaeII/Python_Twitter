@@ -3,6 +3,8 @@ version: '3'
 services:
   api-twitter:
     build: .
+    networks:
+      - lucy_rede
     ports:
       - "8000:8000"
     environment:
